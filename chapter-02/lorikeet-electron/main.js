@@ -13,7 +13,7 @@ app.on('window-all-closed',() => {
 app.on('ready', () => {
   // Extra configuration settings added due to issue, see 
   // https://github.com/paulbjensen/cross-platform-desktop-applications/issues/9
-  mainWindow = new BrowserWindow({ webPreferences: { nodeIntegration: true } });
+  mainWindow = new BrowserWindow({ webPreferences: { nodeIntegration: true, contextIsolation: false } });
   mainWindow.loadURL(`file://${app.getAppPath()}/index.html`);
   mainWindow.on('closed', () => { mainWindow = null; });
 });

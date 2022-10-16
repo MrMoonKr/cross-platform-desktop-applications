@@ -4,15 +4,20 @@
   "description": "Node.js + Electron.js + NW.js",
   "main": "index.js",
   "scripts": {
-    "chapter01:nw": "nw ./chapter-01/hello-world-nwjs/",
-    "chapter01:electron": "electron ./chapter-01/hello-world-electron/",
+    "ch01:nw": "nw ./chapter-01/hello-world-nwjs/",
+    "ch01:electron": "electron ./chapter-01/hello-world-electron/",
+    "ch02:nw": "nw ./chapter-02/lorikeet-nwjs/",
+    "ch02:electron": "electron ./chapter-02/lorikeet-electron/",
+    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^3.2.4",
     "electron": "^21.1.1",
-    "nw": "^0.69.1"
+    "nw": "^0.69.1",
+    "osenv": "^0.1.5"
   }
 }
