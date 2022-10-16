@@ -1,7 +1,7 @@
 {
-  "name": "chapter-01",
+  "name": "cross-platform-desktop-applications-nodejs-electron-nw",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js + Electron.js + NW.js",
   "main": "index.js",
   "scripts": {
     "chapter01:nw": "nw ./chapter-01/hello-world-nwjs/",
