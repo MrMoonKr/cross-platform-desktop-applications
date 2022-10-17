@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/nw.js": "^0.13.16",
     "async": "^3.2.4",
     "electron": "^21.1.1",
     "lunr": "^2.3.9",
