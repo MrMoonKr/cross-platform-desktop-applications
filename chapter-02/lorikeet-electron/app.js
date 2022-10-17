@@ -43,9 +43,15 @@ function inspectAndDescribeFiles(folderPath, files, cb) {
 function displayFile(file) {
   const mainArea = document.getElementById('main-area');
   const template = document.querySelector('#item-template');
+  /**
+   * @type {HTMLElement}
+   */
   let clone = document.importNode(template.content, true);
   clone.querySelector('img').src = `images/${file.type}.svg`;
   clone.querySelector('.filename').innerText = file.file;
+  // clone.onclick = ( function ( e ) {
+  //   console.log( "click !!!");
+  // });
   mainArea.appendChild(clone);
 }
 
