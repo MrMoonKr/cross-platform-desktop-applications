@@ -65,6 +65,12 @@ function main() {
         process.exit();
     });
 
+    win.on('loaded', () => {
+        const currentFolder = document.getElementById('current-folder');
+        currentFolder.innerText = getUsersHomeFolder();
+    });
+
+
 
     let folderPath = getUsersHomeFolder();
     getFilesInFolder( folderPath, ( err, files ) => {
