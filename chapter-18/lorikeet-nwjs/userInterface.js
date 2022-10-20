@@ -1,13 +1,17 @@
 'use strict';
 
+/**
+ * @type {Document}
+ */
 let document;
+
 const fileSystem = require( './fileSystem' );
 const search = require( './search' );
 const path = require( 'path' );
 
 function displayFolderPath( folderPath ) {
-    document.getElementById( 'current-folder' )
-        .innerHTML = convertFolderPathIntoLinks( folderPath );
+    const currentFolder = document.getElementById( 'current-folder' );
+    currentFolder.innerHTML = convertFolderPathIntoLinks( folderPath );
     bindCurrentFolderPath();
 }
 
@@ -66,6 +70,10 @@ function displayFiles( err, files ) {
     files.forEach( displayFile );
 }
 
+/**
+ * A window containing a DOM document
+ * @param {Window} window 
+ */
 function bindDocument( window ) {
     if ( !document ) {
         document = window.document;
@@ -100,14 +108,21 @@ function resetFilter() {
     }
 }
 
+/**
+ * Directory path
+ * @param {String} folderPath 
+ * @returns 
+ */
 function convertFolderPathIntoLinks( folderPath ) {
     const folders = folderPath.split( path.sep );
     const contents = [];
     let pathAtFolder = '';
+    
     folders.forEach( ( folder ) => {
         pathAtFolder += folder + path.sep;
         contents.push( `<span class="path" data-path="${pathAtFolder.slice(0,-1)}">${folder}</span>` );
     } );
+
     return contents.join( path.sep ).toString();
 }
 

@@ -36,7 +36,6 @@
             "name": "[Debug][NWjs]index.html",
             "nwjsVersion": "0.69.1",
             "webRoot": "${fileDirname}/",
-            "cwd": "${fileDirname}",
             "reloadAfterAttached": true
         },
         {
