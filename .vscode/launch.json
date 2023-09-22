@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "nwjs",
+            "request": "launch",
+            "name": "[Debug][NWjs]index.html",
+            "nwjsVersion": "0.80.0",
+            "webRoot": "${fileDirname}/",
+            "reloadAfterAttached": true
+        },
+        {
             "name": "Debug-Electron-MainProcess",
             "type": "node",
             "request": "launch",
@@ -29,14 +37,6 @@
               "--remote-debugging-port=9222"
             ],
             "webRoot": "${fileDirname}"
-          },
-        {
-            "type": "nwjs",
-            "request": "launch",
-            "name": "[Debug][NWjs]index.html",
-            "nwjsVersion": "0.69.1",
-            "webRoot": "${fileDirname}/",
-            "reloadAfterAttached": true
         },
         {
             "type": "nwjs",

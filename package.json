@@ -1,15 +1,15 @@
 {
-  "name": "cross-platform-desktop-applications-nodejs-electron-nw",
+  "name": "cross-platform-desktop-applications-using-electron-nw",
   "version": "1.0.0",
   "description": "Node.js + Electron.js + NW.js",
   "main": "index.js",
   "scripts": {
-    "ch01:nw": "nw ./chapter-01/hello-world-nwjs/",
-    "ch01:electron": "electron ./chapter-01/hello-world-electron/",
-    "ch02:nw": "nw ./chapter-02/lorikeet-nwjs/",
-    "ch02:electron": "electron ./chapter-02/lorikeet-electron/",
-    "ch03:nw": "nw ./chapter-03/lorikeet-nwjs/",
-    "ch03:electron": "electron ./chapter-03/lorikeet-electron/",
+    "ch01.nw": "nw ./chapter-01/hello-world-nwjs/",
+    "ch01.electron": "electron ./chapter-01/hello-world-electron/",
+    "ch02.nw": "nw ./chapter-02/lorikeet-nwjs/",
+    "ch02.electron": "electron ./chapter-02/lorikeet-electron/",
+    "ch03.nw": "nw ./chapter-03/lorikeet-nwjs/",
+    "ch03.electron": "electron ./chapter-03/lorikeet-electron/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -20,7 +20,9 @@
     "async": "^3.2.4",
     "electron": "^21.1.1",
     "lunr": "^2.3.9",
-    "nw": "^0.69.1",
     "osenv": "^0.1.5"
+  },
+  "devDependencies": {
+    "nw": "^0.80.0-sdk"
   }
 }
