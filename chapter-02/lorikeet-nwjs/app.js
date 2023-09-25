@@ -1,47 +1,11 @@
-'use strict';
 
-const async = require( 'async' );
-const fs = require( 'fs' );
-const osenv = require( 'osenv' );
-const path = require( 'path' );
+// ES6 가 동작하긴 하는데...
+// 외부모듈 사용시는 CommonJS 형태로 사용해야 함. './js/filebrowser.js' 참고할 것
+import FileBrowser from './js/filebrowser.js' ;
 
-function getUsersHomeFolder() {
-    return osenv.home();
-}
 
-function getFilesInFolder( folderPath, cb ) {
-    fs.readdir( folderPath, cb );
-}
-
-function inspectAndDescribeFile( filePath, cb ) {
-    let result = {
-        file: path.basename( filePath ),
-        path: filePath,
-        type: ''
-    };
-    fs.stat( filePath, ( err, stat ) => {
-        if ( err ) {
-            cb( err );
-        } else {
-            if ( stat.isFile() ) {
-                result.type = 'file';
-            }
-            if ( stat.isDirectory() ) {
-                result.type = 'directory';
-            }
-            cb( err, result );
-        }
-    } );
-}
-
-function inspectAndDescribeFiles( folderPath, files, cb ) {
-    async.map( files, ( file, asyncCb ) => {
-        let resolvedFilePath = path.resolve( folderPath, file );
-        inspectAndDescribeFile( resolvedFilePath, asyncCb );
-    }, cb );
-}
-
-function displayFile( file ) {
+function displayFile( file ) 
+{
     const mainArea = document.getElementById( 'main-area' );
     const template = document.querySelector( '#item-template' );
     let clone = document.importNode( template.content, true );
@@ -50,15 +14,30 @@ function displayFile( file ) {
     mainArea.appendChild( clone );
 }
 
-function displayFiles( err, files ) {
-    if ( err ) {
+
+function displayFiles( err, files ) 
+{
+    if ( err ) 
+    {
         return alert( 'Sorry, we could not display your files' );
     }
+
     files.forEach( displayFile );
 }
 
-function main() {
+function main() 
+{
+    let homeFolder = FileBrowser.getUsersHomeFolder() ;
 
+    FileBrowser.getFilesInFolder( homeFolder, ( err, files ) => {
+        if ( err ) 
+        {
+            return alert( 'Sorry, we could not load your home folder' );
+        }
+
+        FileBrowser.inspectAndDescribeFiles( homeFolder, files, displayFiles );
+    } );
+    
     const win = nw.Window.get();
 
     win.on('close', () => {
@@ -67,18 +46,19 @@ function main() {
 
     win.on('loaded', () => {
         const currentFolder = document.getElementById('current-folder');
-        currentFolder.innerText = getUsersHomeFolder();
+        currentFolder.innerText = FileBrowser.getUsersHomeFolder();
     });
 
+    // let homeFolder = FileBrowser.getUsersHomeFolder() ;
 
+    // FileBrowser.getFilesInFolder( homeFolder, ( err, files ) => {
+    //     if ( err ) 
+    //     {
+    //         return alert( 'Sorry, we could not load your home folder' );
+    //     }
 
-    let folderPath = getUsersHomeFolder();
-    getFilesInFolder( folderPath, ( err, files ) => {
-        if ( err ) {
-            return alert( 'Sorry, we could not load your home folder' );
-        }
-        inspectAndDescribeFiles( folderPath, files, displayFiles );
-    } );
+    //     FileBrowser.inspectAndDescribeFiles( homeFolder, files, displayFiles );
+    // } );
 }
 
 main();

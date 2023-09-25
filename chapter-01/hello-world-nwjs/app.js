@@ -1,4 +1,5 @@
 import { sayHello } from './helpers.js';
+import utils from './js/utils.js';
 
 
 let win = nw.Window.get();
@@ -9,4 +10,5 @@ win.on( 'close', () => {
     process.exit();
 } );
 
-document.getElementById( 'btnTest').addEventListener( 'click', sayHello );
+//document.getElementById( 'btnTest').addEventListener( 'click', sayHello );
+document.getElementById( 'btnTest').addEventListener( 'click', utils.sayHello );
