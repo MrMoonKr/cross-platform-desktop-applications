@@ -13,7 +13,7 @@
             "reloadAfterAttached": true
         },
         {
-            "name": "Debug-Electron-MainProcess",
+            "name": "[Debug][Electron]main.js",
             "type": "node",
             "request": "launch",
             "cwd": "${fileDirname}",

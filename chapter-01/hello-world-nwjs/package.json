@@ -1,5 +1,5 @@
 {
-  "name": "hello-world-nwjs",
-  "main": "index.html",
-  "version": "1.0.0"
+    "name": "hello-world-nwjs",
+    "version": "1.0.0",
+    "main": "index.html"
 }

@@ -10,15 +10,26 @@ This is a repository containing applications and code samples from the book [Cro
 - NW.js ( v0.80.0 )
 - Electron ( v21.1.1+ )
 
+### Runtime Sequence
+실행 환경 순서
+
+- NW.js
+  + nw.exe -> package.json -> "main": "index.html'
+
+- electron.js
+  + electron.exe -> package.json -> "main": "main.js" 
+  + main.js -> BrowserWindow() -> win.loadURL("index.html" )
+
 ### Debugging
 
 - NW.js
+  + nw.js sdk 버전을 이용한 디버깅이다.
   + open index.html or open main.js
   + select [Debug][NWjs]index.html in Debug Options
   + F5 or Run -> Start Debugging
 - Electron
-  + BlahBlah
-  + BlahBlah
+  + Main Process( node.js ) + Render Process( chorome debugging )
+  + open main.js or open index.html
   + BlahBlah
 
 ### Installing the code examples

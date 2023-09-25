@@ -1,10 +1,10 @@
 'use strict';
 
-const electron = require( 'electron' );
-const app = electron.app;
+const electron      = require( 'electron' );
+const app           = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
-let mainWindow = null;
+let mainWindow      = null;
 
 app.on( 'window-all-closed', () => {
     if ( process.platform !== 'darwin' ) app.quit();
