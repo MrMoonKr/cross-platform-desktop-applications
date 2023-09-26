@@ -2,10 +2,5 @@
     "name": "lorikeet",
     "version": "1.0.0",
     "description": "",
-    "main": "index.html",
-
-    "dependencies": {
-        "async": "^3.2.4",
-        "osenv": "^0.1.5"
-    }
+    "main": "index.html"
 }
